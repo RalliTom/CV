@@ -1,0 +1,54 @@
+﻿<!--This is the Authentication page for 'CV App of Tommi Ralli 1800583'-->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Apache Cordova</title>
+
+</head>
+
+<body class="cover vertical-align-center blue-grey-900 align-center blend-soft-light">
+
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <!--<p class="text-white">CV</p>-->
+    <h1 class="text-blue">Tommi Ralli</h1>
+    <p class="text-grey-300">Login to see my CV inside</p>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="row">
+        <div class="col-90 col-center">
+            <div class="list no-border opacity-60">
+                <div class="item icon ion-android-person border-grey border-bottom">
+                    <input class="placeholder-white text-white" type="text" placeholder="Enter your username" id="username" required />
+                </div>
+                <div class="item icon ion-android-lock border-grey border-bottom">
+                    <input class="placeholder-white text-white" type="password" placeholder="Enter your password" id="password" required />
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <!--When SIGN IN button is clicked, function login is called. It checks that user and pw are authorized -->
+            <button class="border-blue text-blue full" onclick="login()" id="loginBtn">SIGN IN</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember me
+            </label>
+        </div>
+    </div>
+    <div class="header bottom gradient">
+        <button class="text-grey">CV</button>
+    </div>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
