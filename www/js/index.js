@@ -35,6 +35,6 @@ function logout() {
 }
 // closes the side menu
 function close() {
-    document.getElementById('sideMenu').;
+    document.getElementById('sideMenu');
     console.log("close called");
 }
