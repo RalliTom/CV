@@ -1,4 +1,5 @@
 ﻿<!--This is the main page of my CV App-->
+<!-- Tommi Ralli 1800583-->
 <!--Idea is to include all the required pages and info in here and also have a menu of sorts to navigate, tabs will be used to navigate also-->
 <!DOCTYPE html>
 <html>
@@ -12,68 +13,90 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    
+    <script type="text/javascript" src="js/index.js"></script>
+
 </head>
 
 <body>
     <ion-app>
         <!--I'll create menu items to pop up on the left side of app-->
-        <ion-menu side="start">
-            <ion-header slot="top" class="padding red full-width">
+        <ion-menu id="sideMenu" side="start" onclick="close()">
+            <ion-header slot="top" class="padding full-width">
                 <ion-toolbar>
-                    
+
                 </ion-toolbar>
             </ion-header>
+            <!--Added more content to menu-->
             <ion-content>
                 <ion-list>
-                    <ion-item>
-                        <ion-icon name="md-home" slot="start" onclick="openTab('tabAbout'); close()"></ion-icon>
-                        <ion-label>About</ion-label>
+
+                    <ion-item onclick="openTab('tabAbout')">
+                        <ion-icon name="md-home" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Personal Profile</ion-label>
                     </ion-item>
-                    <ion-item>
-                        <ion-icon name="md-paper" slot="start" onclick="openTab('tabCV'); close()"></ion-icon>
-                        <ion-label>CV</ion-label>
+                    <ion-item onclick="openTab('tabCV')">
+                        <ion-icon name="md-paper" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">CV</ion-label>
                     </ion-item>
-                    <ion-item>
-                        <ion-icon name="md-albums" slot="start" onclick="openTab('tabProjectW'); close()"></ion-icon>
-                        <ion-label>Project Work</ion-label>
+                    <ion-item onclick="openTab('techSkills')">
+                        <ion-icon name="cog" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Technical Skills</ion-label>
                     </ion-item>
-                    <ion-item>
-                        <ion-icon name="md-book" slot="start" onclick="openTab('tabExtraAct'); close()"></ion-icon>
-                        <ion-label>Extra Curriculum Activities</ion-label>
+                    <ion-item onclick="openTab('softSkills')">
+                        <ion-icon name="hand" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Soft Skills</ion-label>
                     </ion-item>
-                    <ion-item>
-                        <ion-icon name="md-contact" slot="start" onclick="openTab('tabContact'); close()"></ion-icon>
-                        <ion-label>Contact Info</ion-label>
+                    <ion-item onclick="openTab('tabProjecW')">
+                        <ion-icon name="desktop" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Personal Project</ion-label>
+                    </ion-item>
+                    <ion-item onclick="openTab('tabTeamPro')">
+                        <ion-icon name="people" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Team Project</ion-label>
+                    </ion-item>
+                    <ion-item onclick="openTab('tabExtraAct')">
+                        <ion-icon name="md-book" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Extra Curriculum Activities</ion-label>
+                    </ion-item>
+                    <ion-item onclick="openTab('tabContact')">
+                        <ion-icon name="md-contact" slot="start"></ion-icon>
+                        <ion-label style="text-align:right;">Contact Info</ion-label>
                     </ion-item>
                 </ion-list>
             </ion-content>
         </ion-menu>
-        <!--this is the menu button in the header-->
+        <!--this is the logout button in the header-->
         <div class="ion-page" main>
             <ion-header>
-                <ion-toolbar>
+                <ion-toolbar color="light">
+                    <ion-buttons slot="end">
+                        <ion-menu-button onclick="logout()">
+                            <ion-icon name="exit"></ion-icon>
+                        </ion-menu-button>
+                    </ion-buttons>
+                    <!--this is menu button-->
                     <ion-buttons slot="start">
                         <ion-menu-button>
-                            <ion-button class="icon ion-android-exit align-right" onclick="window.location.href = 'index.html'"></ion-button>
-                        </ion-menu-button> 
+                            <ion-icon name="menu"></ion-icon>
+                        </ion-menu-button>
                     </ion-buttons>
                     <ion-title class="align-center">Tommi Ralli</ion-title>
                 </ion-toolbar>
             </ion-header>
-            <!--now the content of the pages is built here-->
+            <!--the content of the pages is built here-->
             <ion-content class="ion-padding">
-                <div class="tab-content padding active" id="tabAbout">
-                    <h2 class="text-strong has-header padding">Tommi Ralli</h2>
+                <div class="tab-content active padding" id="tabAbout">
+                    <h2 class="text-strong padding">Tommi Ralli</h2>
                     <img src="images/tommi.jpg" />
                     <p>
-                    I am 1980's kid who likes music and computers. I'm constantly studying and hungry for knowledge.
-                    <div class="space-big"></div>
+                        I am 1980's kid who likes music and computers. I'm constantly studying and hungry for knowledge.<br />
+                        <br />My passion is UX and Designing apps with good usability.
                     </p>
 
                 </div>
+                <!--CV tab-->
                 <div class="tab-content padding" id="tabCV">
-                    <h2 class="text-strong has-header padding">CV</h2>
+                    <h2 class="text-strong">CV</h2>
                     <p>
                         <br />
                         EDUCATION<br />
@@ -81,6 +104,18 @@
                         Stadia University of Applied Sciences, Bachelor of Health Care (Radiographer) 2003-2006 <br />
                         Lauritsalan lukio, 1999 Matriculation examination<br />
                         <br />
+                        COURSES<br />
+                        <ul class="padding">
+                            <li>Web & Multimedia Development</li>
+                            <li>Digital & Interactive Design</li>
+                            <li>Graphic & GUI Design</li>
+                            <li>Search Engine Optimization (SEO)</li>
+                            <li>Web Content Management</li>
+                            <li>Internet Technologies</li>
+                            <li>System Security</li>
+                        </ul><br />
+                        WEV DEVELOPMENT EXPERIENCE<br />
+                        BBA, Business Information Technology, Programming and Web Site Development Full Stack, degree in progress<br /><br />
                         EXPERIENCE<br />
                         Apotti, 11/2017 - , Application Coordinator, Radiant<br />
                         HUS Kuvantaminen, 05/2006 – 11/2017 Radiographer<br />
@@ -120,25 +155,64 @@
                         <div class="space-big"></div>
                     </p>
                 </div>
+                <!--Project tab-->
                 <div class="tab-content padding" id="tabProjecW">
-                    <h2 class="text-strong has-header padding">Project Works</h2>
-                    <p>This app is made by Tommi Ralli in 2019. Would you believe that?</p>
-                    
+                    <h2 class="text-strong ">Project Works</h2>
+                    <p><a href="https://github.com/RalliTom/ToDoOrNot">To Do or Not To Do</a></p>
+                    <p>TextEditor made with Java</p>
+                    <p>Vending Machine UI made with Java</p>
+                    <p>Library Database made with Java</p>
+
+
                 </div>
+                <!--Skills tab-->
+                <div class="tab-content padding" id="softSkills">
+                    <h2 class="text-strong">Web Developer</h2>
+                    <ul>
+                        <li>Junior Web developer able to build a Web presence from the ground up -- from concept, navigation, layout and programming to UX and SEO.</li>
+                        <li>Skilled at writing well-designed, testable and efficient code using current best practices in Web development.</li>
+                        <li>Fast learner, hard worker and team player who is proficient in an array of scripting languages and multimedia Web tools.</>
+                    </ul>
+                </div>
+                <!--Techskills tab-->
+                <div class="tab-content padding" id="techSkills">
+                    <h2 class="text-strong">My Toolbox</h2>
+                    <p>
+                        <b>Web Tools:</b>JavaScript, jQuery, CSS, PHP, HTML, XHTML, XML, AngularJS, Bootstrap, Java, .Net, ASP.NET, Python, MySQL, GitHub, Apache Flex, JavaFX, REST, SOAP, cPanel, Google Analytics, WordPress
+                    </p>
+                    <p><b>Adobe Creative Cloud: </b>Photoshop, Lightroom, Illustrator, InDesign, Experience Design, Premiere Pro, After Effects, Animate, Dreamweaver, Fuse, Adobe Muse, Acrobat Pro DC</p>
+                    </p>
+                </div>
+                <!--Extra Activities tab-->
                 <div class="tab-content padding" id="tabExtraAct">
                     <h2><b>Extra Curriculum Activity</b></h2>
-                    <p>Lorem ipsum</p>
+                    <p>Basics of alcohol beverages & wines 5 cr</p>
+                    <p>CISSP - Certified Information Systems 10 cr</p>
+                    <p>IT Service Management 5 cr</p>
+                    <p>Basics of Application Testing 5 cr</p>
                 </div>
+                <!--Team projects tab-->
+                <div class="tab-content padding" id="tabTeamPro">
+                    <h2><b>Team Project</b></h2>
+                    <p><a href="https://github.com/Amarteli/SportsDiary">SportsDiary</a></p>
+                    <p><a href="https://github.com/Amarteli/SongList/">SongList</a></p>
+                    <p>Service Design for Laureamko Harassment Contact Persons Services</p>
+                    <p>Range Diary made with PHP</p>
+                </div>
+                <!--Contact tab-->
                 <div class="tab-content padding" id="tabContact">
                     <h2><b>Contact me</b></h2>
                     <p> email: tommi.ralli@gmail.com</p>
-                    <ion-button onclick="parent.location='https://www.facebook.com/tommi.ralli'">
+                    <h2><b>Check out my work:</b></h2>
+                    <p> GitHub: <a href="https://github.com/RalliTom">github.com/RalliTom</a></p>
+                    <h2><b>Contact me on Social Media:</b></h2>
+                    <ion-button onclick="parent.location='https://www.facebook.com/'">
                         <ion-icon name="logo-facebook"></ion-icon>
                     </ion-button>
                     <ion-button color="tertiary" onclick="parent.location='https://www.instagram.com/mrralli/?hl=fi'">
                         <ion-icon name="logo-instagram"></ion-icon>
                     </ion-button>
-                    <ion-button color="blue-300" onclick="parent.location='https://www.linkedin.com/in/tommiralli/'">
+                    <ion-button onclick="parent.location='https://www.linkedin.com/in/tommiralli/'">
                         <ion-icon name="logo-linkedin"></ion-icon>
                     </ion-button>
 
@@ -149,10 +223,10 @@
     <ion-menu-controller></ion-menu-controller>
 
 
-    
 
 
-    <ion-tab-bar class="row-stretch padding full-width bottom">
+    <!--footer with icons-->
+    <ion-tab-bar color="light" class="row-stretch padding full-width bottom">
 
         <ion-tab-button class="col-20" onclick="openTab('tabAbout')">
             <ion-icon name="home"></ion-icon>
@@ -171,7 +245,7 @@
         </ion-tab-button>
 
     </ion-tab-bar>
-  
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
