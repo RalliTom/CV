@@ -1,5 +1,6 @@
-﻿include('index', 'cv');
+﻿// Tommi Ralli 1800583
 
+// very basic login function. Checks if fields are filled and lets user in if they used exact login values
 function login() {
     var un = document.getElementById("username").value;
     var pw = document.getElementById("password").value;
@@ -25,12 +26,15 @@ function login() {
         alert('Invalid user. Hint: tommi and 123 will let you in.');
     }
 }
+// logout function, clears localstorage and guides the user to login page
+function logout() {
 
-/*function logout() {
+    localStorage.clear();
     window.location.href = 'index.html';
-    location.reload(true);
-}*/
-
+    console.log("Localstorage Cleared");
+}
+// closes the side menu
 function close() {
-    document.querySelector('ion.menu-controller').close();
+    document.getElementById('sideMenu').;
+    console.log("close called");
 }
